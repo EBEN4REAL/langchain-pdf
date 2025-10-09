@@ -10,7 +10,7 @@ class Config:
     SQLALCHEMY_DATABASE_URI = os.environ["SQLALCHEMY_DATABASE_URI"]
     UPLOAD_URL = os.environ["UPLOAD_URL"]
     CELERY = {
-        "broker_url": os.environ.get("REDIS_URI", False),
+        "broker_url": "redis://localhost:6379/0",
         "task_ignore_result": True,
         "broker_connection_retry_on_startup": False,
     }
