@@ -10,4 +10,4 @@ def build_llm(chat_args) -> ChatOpenAI:
     Returns:
         ChatOpenAI: Configured ChatOpenAI instance
     """
-    return ChatOpenAI()
+    return ChatOpenAI(streaming=chat_args.streaming)
