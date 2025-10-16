@@ -12,7 +12,7 @@ vector_store = PineconeVectorStore(
     pinecone_api_key=os.getenv("PINECONE_API_KEY")
 )
 
-def build_retriever(chat_args) -> PineconeVectorStore:
+def build_retriever(chat_args, k) -> PineconeVectorStore:
     """
     Build a retriever from Pinecone vector store filtered by PDF ID.
     
@@ -24,6 +24,7 @@ def build_retriever(chat_args) -> PineconeVectorStore:
     """
     return vector_store.as_retriever(
         search_kwargs={
-            "filter": {"pdf_id": chat_args.pdf_id}
+            "filter": {"pdf_id": chat_args.pdf_id},
+            "k": k
         }
     )
