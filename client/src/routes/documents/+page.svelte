@@ -9,7 +9,7 @@
 
 <AuthGuard />
 <div class="flex flex-row justify-between items-center my-4">
-	<h2 class="text-3xl font-bold m-2">Your Documents</h2>
+	<h2 class="text-3xl font-bold m-2">Eben Documents</h2>
 	<div class="">
 		<a
 			href="/documents/new"

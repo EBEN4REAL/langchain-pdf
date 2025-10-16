@@ -1,9 +1,15 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
-	import * as pdfjs from 'pdfjs-dist';
+	// import * as pdfjs from 'pdfjs-dist';
 
-	pdfjs.GlobalWorkerOptions.workerSrc =
-		'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.5.141/pdf.worker.min.js';
+	// pdfjs.GlobalWorkerOptions.workerSrc =
+	// 	'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.5.141/pdf.worker.min.js';
+
+	import * as pdfjs from 'pdfjs-dist';
+	pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+	'pdfjs-dist/build/pdf.worker.min.mjs',
+	import.meta.url
+	).toString();
 
 	export let url = '';
 	let canvasContainer: HTMLDivElement;

@@ -6,6 +6,7 @@
 	beforeNavigate(resetAll);
 
 	function handleSubmit(content: string, useStreaming: boolean) {
+		console.log("Submitting message with streaming:", useStreaming);
 		sendMessage({ role: 'user', content }, { useStreaming });
 	}
 </script>
