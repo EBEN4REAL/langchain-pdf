@@ -25,7 +25,7 @@ redis = "*"
 langchain = "*"
 langchain-openai = "*"
 langchain-pinecone = "*"
-langfuse = "*"
+langfuse = "==2.60.10"
 
 [dev-packages]
 
