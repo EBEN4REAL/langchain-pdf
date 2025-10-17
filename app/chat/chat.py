@@ -17,6 +17,7 @@ from app.web.api import (
     get_conversation_components
 )
 from app.chat.score import random_component_by_score
+from app.chat.tracing import langfuse_client 
 
 def select_component(
     component_type, component_map, chat_args
@@ -96,6 +97,22 @@ Question: {question}
 Answer: Let me help you with that."""
     )
 
+    # Create trace
+    trace = langfuse_client.langfuse.trace(
+        name="chat-conversation",
+        user_id=str(chat_args.conversation_id),
+        session_id=str(chat_args.conversation_id),
+        metadata=chat_args.metadata if hasattr(chat_args, 'metadata') else {}
+    )
+    
+
+    
+
+    # Get handler from the trace
+    langfuse_handler = trace.get_langchain_handler()
+
+    print(f"Langfuse handler created: {langfuse_handler}")
+
     chain = StreamingConversationalRetrievalChain.from_llm(
         llm=llm,
         condense_question_llm=condense_question_llm,
@@ -105,6 +122,7 @@ Answer: Let me help you with that."""
         verbose=True,
         return_source_documents=False,
         combine_docs_chain_kwargs={"prompt": qa_prompt},
+        callbacks=[langfuse_handler],
     )
     
     return chain
