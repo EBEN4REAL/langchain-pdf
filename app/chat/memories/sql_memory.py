@@ -3,6 +3,7 @@ from pydantic import BaseModel
 from langchain.memory import ConversationBufferMemory       
 from langchain_core.chat_history import BaseChatMessageHistory
 from langchain_core.messages import BaseMessage, HumanMessage, AIMessage
+from app.chat.memories.histories.sql_history import SqlMessageHistory
 
 from app.web.api import (
     get_messages_by_conversation_id,
