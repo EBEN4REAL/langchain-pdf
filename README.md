@@ -128,12 +128,10 @@ Then open the app in your browser at [http://localhost:5173](http://localhost:51
 
 ```
 ├── app/
+│   ├── celery/           # Celery background workers Flask web server
+|   ├── chat/             # Flask chat server
 │   ├── web/              # Flask web server
-│   ├── workers/          # Celery background workers
-│   ├── db/               # Database and vector store setup
-│   ├── utils/            # Helper functions (PDF parsing, embeddings)
-│   └── ...
-├── frontend/             # Svelte + TypeScript client
+├── client/             # Svelte + TypeScript client
 ├── Pipfile               # Python dependencies
 ├── tasks.py              # Celery tasks
 └── README.md
