@@ -167,12 +167,3 @@ VECTOR_STORE=chroma  # or pinecone
 | Reset DB             | `flask --app app.web init-db` |
 
 ---
-
-## 📄 License
-
-This project is licensed under the MIT License.
-
----
-
-Would you like me to include a **"Demo"** or **"Usage"** section (e.g., showing how users upload PDFs and chat with them via the UI or API)?
-It’ll make your README even more engaging if you plan to publish it on GitHub.
